@@ -26,12 +26,15 @@ var BouncingBall = function(div_id, x_start, y_start, x_end, y_end) {
                             }
                         }
                         timers.timerID = setTimeout(runNext, 0);
+                    } else {
+                        timers.stop();
                     }
                 })();
             },
             stop: function() {
                 clearTimeout(this.timerID);
                 this.timerID = 0;
+                
             }
 
         };
@@ -47,8 +50,7 @@ var BouncingBall = function(div_id, x_start, y_start, x_end, y_end) {
                     return false;
             } else {
                 if (--x < _x_end)
-                    return false;
-                
+                    return false;                
             }
         });
 
@@ -72,20 +74,20 @@ window.onload = function() {
  
     var bouncingBall1 = new BouncingBall(
             "box1",
-            0,
-            0,
-            200,
-            200
+            -100,
+            100,
+            300,
+            100
             );
 
     bouncingBall1.move();
 //alert("break");
    var bouncingBall2 = new BouncingBall(
             "box2",
-            300,
+            400,
             500,
             100,
-            300
+            200
             );
 
     bouncingBall2.move();
